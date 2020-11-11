@@ -1,0 +1,1 @@
+select subquery.student,max(subquery.date) from (select * from exams e1, (select e2.student as student2, max(e2.date) from exams e2 group by e2.student) as e2 where e1.student=e2.student2 and e1.date=e2.max order by e1.student,e1.date desc) as subquery group by subquery.student having count(*)>1;

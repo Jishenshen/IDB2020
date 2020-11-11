@@ -1,0 +1,1 @@
+select distinct subquery1.course from (select * from programmes p1 inner join degrees d1 on p1.degree=d1.code) as subquery1,(select * from programmes p1 inner join degrees d1 on p1.degree=d1.code) as subquery2 where subquery1.course=subquery2.course and subquery1.type='UG' and subquery2.type='PG';
